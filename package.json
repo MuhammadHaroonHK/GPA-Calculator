@@ -5,14 +5,13 @@
   "type": "module",
   "homepage": "https://MuhammadHaroonHK.github.io/GPA-Calculator",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "vite"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+}
+,
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
