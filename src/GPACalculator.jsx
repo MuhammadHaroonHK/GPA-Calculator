@@ -153,6 +153,18 @@ const GPACalculator = () => {
     localStorage.removeItem("gpaHistory");
   };
 
+  const deleteSgpaSubject = (index) => {
+    const newSubjects = [...sgpaSubjects];
+    newSubjects.splice(index, 1); // Remove the subject at the specified index
+    setSgpaSubjects(newSubjects);
+  };
+  
+  const deleteCgpaDetail = (index) => {
+    const newDetails = [...cgpaDetails];
+    newDetails.splice(index, 1); // Remove the semester at the specified index
+    setCgpaDetails(newDetails);
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* SEO Optimization with Helmet */}
@@ -200,6 +212,7 @@ const GPACalculator = () => {
           sgpaCalculation={sgpaCalculation}
           showReset={showReset}
           resetSgpa={resetSgpa}
+          deleteSgpaSubject={deleteSgpaSubject}
         />
 
         {/* CGPA Calculator */}
@@ -213,6 +226,7 @@ const GPACalculator = () => {
           cgpaCalculation={cgpaCalculation}
           showResetCgpa={showResetCgpa}
           resetCgpa={resetCgpa}
+          deleteCgpaDetail={deleteCgpaDetail}
         />
 
         {/* History Section */}

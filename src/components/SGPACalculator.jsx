@@ -1,4 +1,5 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa"; // Import a trash icon from react-icons
 
 const SGPACalculator = ({
   sgpaSubjects,
@@ -10,12 +11,13 @@ const SGPACalculator = ({
   sgpaCalculation,
   showReset,
   resetSgpa,
+  deleteSgpaSubject, // Add this prop for deleting a subject
 }) => {
   return (
     <div id="sgpa" className="max-w-2xl mx-auto bg-white shadow-lg rounded-xl p-6 mb-10">
       <h2 className="text-2xl font-semibold mb-4 text-slate-800">SGPA Calculator</h2>
       {sgpaSubjects.map((subject, index) => (
-        <div key={index} className="flex gap-4 mb-2">
+        <div key={index} className="flex gap-4 mb-2 items-center">
           <input
             type="number"
             placeholder="Subject GPA"
@@ -30,6 +32,13 @@ const SGPACalculator = ({
             onChange={(e) => handleSgpaChange(index, "credit", e.target.value)}
             className="p-2 border rounded w-1/2 hover:border-blue-500 transition-all"
           />
+          {/* Delete button */}
+          <button
+            onClick={() => deleteSgpaSubject(index)} // Call delete function with the index
+            className="text-red-500 hover:text-red-700 transition-all"
+          >
+            <FaTrash className="text-lg" />
+          </button>
         </div>
       ))}
       <button
